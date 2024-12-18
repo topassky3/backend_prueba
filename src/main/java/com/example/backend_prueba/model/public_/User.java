@@ -1,3 +1,4 @@
+// src/main/java/com/example/backend_prueba/model/public_/User.java
 package com.example.backend_prueba.model.public_;
 
 import jakarta.persistence.*;
@@ -11,23 +12,22 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username", nullable = false, columnDefinition = "TEXT")
+    @Column(name="username", nullable=false, columnDefinition="TEXT")
     private String username;
 
-    @Column(name = "email", nullable = false, unique = true, columnDefinition = "TEXT")
+    @Column(name="email", nullable=false, unique=true, columnDefinition="TEXT")
     private String email;
 
-    @Column(name = "password", nullable = false, columnDefinition = "TEXT")
+    @Column(name="password", nullable=false, columnDefinition="TEXT")
     private String password;
 
-    @Column(name = "created_at", updatable = false)
+    @Column(name="created_at", updatable=false)
     private ZonedDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "group_id")
+    @JoinColumn(name="group_id")
     private UserGroup group;
 
-    // Constructors
     public User() {
         this.createdAt = ZonedDateTime.now();
     }
@@ -40,54 +40,15 @@ public class User {
         this.createdAt = ZonedDateTime.now();
     }
 
-    // Getters y Setters
-
-    public Long getId() {
-        return id;
-    }
-
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-    public ZonedDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(ZonedDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-
-    public UserGroup getGroup() {
-        return group;
-    }
-
-    public void setGroup(UserGroup group) {
-        this.group = group;
-    }
+    public Long getId() { return id; }
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+    public ZonedDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(ZonedDateTime createdAt) { this.createdAt = createdAt; }
+    public UserGroup getGroup() { return group; }
+    public void setGroup(UserGroup group) { this.group = group; }
 }
